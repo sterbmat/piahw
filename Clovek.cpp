@@ -15,7 +15,7 @@ void Clovek::nacti()
         std::cout << "Zadejte prijmeni: ";
         std::cin >> prijmeni;
 
-        std::cout << "Zadejte sve maximalni dosazene vzdelani:\n""(Pro ZS->1; SS->2; VS->3)\n";
+        std::cout << "Zadejte maximalni dosazene vzdelani:\n""(Pro ZS->1; SS->2; VS->3)\n";
         enum vzdelani {ZS,SS,VS};
         bool platne = false;
         while (platne == false) {
@@ -41,24 +41,55 @@ void Clovek::nacti()
 
         bool dobre = false;
         while(dobre == false) {
-            std::cout << "Zadejte svoji vysku: \n";
+            std::cout << "Zadejte vysku: \n";
             std::cin >> vyska;
             if(vyska < 240 && vyska > 100) {
                 dobre = true;
             }
         }
 
-        std::cout << "Zadejte svoji hmotnost: \n";
+        std::cout << "Zadejte hmotnost: \n";
         std::cin >> hmotnost;
 
         dobre = false;
         while(dobre == false) {
-            std::cout << "Zadejte svuj vek: \n";
+            std::cout << "Zadejte vek: \n";
             std::cin >> vek;
             if(vek < 120 && vek > 18) {
                 dobre = true;
         }
         }
+}
 
-        //std::vector<std::string> = prijmeni, + " ", + krestni_jmeno, + " ",  + edu, + " ", + vyska, + " ", + hmotnost, + " ", + vek;
+void Clovek::vypis()
+{
+    std::cout << "Krestni jmeno: " << krestni_jmeno << "\n";
+        std::cout << "Prijmeni: " << prijmeni << "\n";
+        if (i==1){
+            std::cout << "Vzdelani: ZS \n";
+        }
+        else if (i==2){
+            std::cout << "Vzdelani: SS \n";
+        }
+        else if (i==3){
+            std::cout << "Vzdelani: VS \n";
+        }
+        else {
+            std::cout << "Zadali jste cislo, ktere neni v intervalu \n";
+        }
+        std::cout << "Vyska: " << vyska << "\n";
+        std::cout << "Hmotnost: " << hmotnost << "\n";
+        std::cout << "Vek: " << vek << "\n";
+}
+
+void Clovek::uloz(std::ofstream& vystupni_soubor)
+{
+        vystupni_soubor << prijmeni << " ";
+        vystupni_soubor << krestni_jmeno << " ";
+
+        vystupni_soubor << "Dosazene vzdelani: " << edu << " ";
+
+        vystupni_soubor << vyska << " cm ";
+        vystupni_soubor << hmotnost << " kg ";
+        vystupni_soubor << vek << " let \n";
 }

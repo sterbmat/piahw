@@ -15,6 +15,8 @@ class Clovek
         float vek;
         std::string edu;
         void nacti();
+        void vypis();
+        void uloz(std::ofstream&);
 
     protected:
 
